@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GSK E Services</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>GSK E Services</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="welcome-section">
+            <h2>Welcome, <span id="agentName">Agent</span></h2>
+            <p>Agent ID: <span id="displayAgentId"></span></p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" onclick="navigateToService('pan-apply')">
+                <div class="service-icon">📝</div>
+                <h3>PAN Apply</h3>
+                <p>Apply for new PAN card</p>
+            </div>
+
+            <div class="service-card" onclick="navigateToService('pan-verify')">
+                <div class="service-icon">✅</div>
+                <h3>PAN Verification</h3>
+                <p>Verify existing PAN card</p>
+            </div>
+
+            <div class="service-card" onclick="navigateToService('recharge')">
+                <div class="service-icon">💳</div>
+                <h3>Recharge</h3>
+                <p>Mobile & DTH recharge</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 GSK E Services - All Rights Reserved</p>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
