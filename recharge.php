@@ -226,6 +226,7 @@ if (!isset($_SESSION['user_id'])) {
         <p>&copy; 2025 GSK E Services - All Rights Reserved</p>
     </footer>
 
+    <script src="js/dashboard.js"></script>
     <script src="js/recharge.js"></script>
 </body>
 </html>
