@@ -90,55 +90,28 @@ if (!isset($_SESSION['user_id'])) {
                                placeholder="Enter 10 digit mobile number" 
                                maxlength="10"
                                required>
+                        <small class="form-help">Operator will be detected automatically</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="operator">Select Operator *</label>
-                        <select id="operator" name="operator" required>
-                            <option value="">Select Operator</option>
-                            <option value="airtel">Airtel</option>
-                            <option value="jio">Jio</option>
-                            <option value="vi">Vi (Vodafone Idea)</option>
-                            <option value="bsnl">BSNL</option>
-                            <option value="mtnl">MTNL</option>
+                        <label for="operator">Operator</label>
+                        <select id="operator" name="operator" disabled required>
+                            <option value="">Detecting...</option>
                         </select>
+                        <small class="form-help">Auto-detected based on mobile number</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="circle">Select Circle *</label>
-                        <select id="circle" name="circle" required>
-                            <option value="">Select Circle</option>
-                            <option value="andhra-pradesh">Andhra Pradesh</option>
-                            <option value="assam">Assam</option>
-                            <option value="bihar">Bihar</option>
-                            <option value="chennai">Chennai</option>
-                            <option value="delhi">Delhi NCR</option>
-                            <option value="gujarat">Gujarat</option>
-                            <option value="haryana">Haryana</option>
-                            <option value="himachal-pradesh">Himachal Pradesh</option>
-                            <option value="jammu-kashmir">Jammu & Kashmir</option>
-                            <option value="karnataka">Karnataka</option>
-                            <option value="kerala">Kerala</option>
-                            <option value="kolkata">Kolkata</option>
-                            <option value="madhya-pradesh">Madhya Pradesh</option>
-                            <option value="maharashtra">Maharashtra</option>
-                            <option value="mumbai">Mumbai</option>
-                            <option value="north-east">North East</option>
-                            <option value="odisha">Odisha</option>
-                            <option value="punjab">Punjab</option>
-                            <option value="rajasthan">Rajasthan</option>
-                            <option value="tamil-nadu">Tamil Nadu</option>
-                            <option value="up-east">UP East</option>
-                            <option value="up-west">UP West</option>
-                            <option value="west-bengal">West Bengal</option>
-                        </select>
+                        <label for="circle">Circle</label>
+                        <input type="text" id="circle" name="circle" readonly required>
+                        <small class="form-help">Auto-detected circle</small>
                     </div>
 
                     <div class="form-group">
                         <label for="amount">Recharge Amount *</label>
                         <input type="number" id="amount" name="amount" 
                                min="10" 
-                               placeholder="Enter amount" 
+                               placeholder="Enter amount or select from below" 
                                required>
                     </div>
 
