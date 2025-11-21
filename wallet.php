@@ -43,6 +43,36 @@ $userEmail = $_SESSION['user_email'] ?? '';
         </div>
     </nav>
 
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Dashboard</h3>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.php"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="profile.php"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="wallet.php" class="active"><i class="fas fa-wallet"></i> Wallet</a></li>
+            <li class="menu-section">
+                <div class="menu-section-title" onclick="toggleSubmenu(this)">
+                    <i class="fas fa-id-card"></i> PAN Services
+                    <i class="fas fa-chevron-down submenu-arrow"></i>
+                </div>
+                <ul class="submenu" style="display: none;">
+                    <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
+                    <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
+                    <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
+                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
+                </ul>
+            </li>
+            <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
+            <li><a href="php/logout.php" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <div class="main-container">
         <div class="page-header">
             <h2><i class="fas fa-wallet"></i> My Wallet</h2>
@@ -360,5 +390,6 @@ $userEmail = $_SESSION['user_email'] ?? '';
             }
         }
     </style>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>

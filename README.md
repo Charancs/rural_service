@@ -1,5 +1,9 @@
 # GSK E Services - Complete Setup Guide
 
+> **🆕 NEW: PAN API Services Integration!**  
+> This project now includes full integration with eKYCHub PAN verification APIs.  
+> See [PAN_API_INTEGRATION_GUIDE.md](PAN_API_INTEGRATION_GUIDE.md) for details.
+
 ## Method 1: Using XAMPP (Recommended for Local Development)
 
 ### Step 1: Install XAMPP
@@ -140,7 +144,7 @@ If your MySQL is running on port **3307** (not default 3306), phpMyAdmin won't c
 
 ### Step 6: Update Database Configuration
 
-Open `C:\xampp\htdocs\My_project\php\config.php` and verify/update:
+Open `C:\xampp\htdocs\rural_service\php\config.php` and verify/update:
 
 ```php
 define('DB_HOST', 'localhost');
@@ -312,10 +316,29 @@ My_project/
 - Session management with secure tokens
 - Input validation on client and server side
 
+## PAN API Configuration
+
+After completing the database setup, configure your API credentials:
+
+### Configure API Credentials
+Open `php/api-config.php` and update with your eKYCHub credentials:
+```php
+define('EKYC_USERNAME', 'your_username_here');
+define('EKYC_TOKEN', 'your_api_token_here');
+```
+
+### Test PAN Services
+After login, test each service from the dashboard:
+1. **PAN Verification** - Verify existing PAN card
+2. **PAN 360** - Get comprehensive PAN details
+3. **PAN Creation** - Apply for new PAN card
+
+📖 **Complete Guide:** See [PAN_API_INTEGRATION_GUIDE.md](PAN_API_INTEGRATION_GUIDE.md) for detailed API documentation.
+
 ## Next Steps
 
 1. Customize colors in `css/style.css`
-2. Add real API integration for PAN services
+2. ✅ ~~Add real API integration for PAN services~~ (Completed - eKYCHub API integrated)
 3. Add payment gateway for recharge
 4. Add email verification
 5. Add forgot password functionality

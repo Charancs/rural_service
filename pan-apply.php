@@ -48,7 +48,18 @@ if (!isset($_SESSION['user_id'])) {
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="profile.php"><i class="fas fa-user"></i> Profile</a></li>
             <li><a href="wallet.php"><i class="fas fa-wallet"></i> Wallet</a></li>
-            <li><a href="pan-apply.php" class="active"><i class="fas fa-id-card"></i> PAN Services</a></li>
+            <li class="menu-section">
+                <div class="menu-section-title" onclick="toggleSubmenu(this)">
+                    <i class="fas fa-id-card"></i> PAN Services
+                    <i class="fas fa-chevron-down submenu-arrow"></i>
+                </div>
+                <ul class="submenu" style="display: block;">
+                    <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
+                    <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
+                    <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
+                    <li><a href="pan-apply.php" class="active"><i class="fas fa-edit"></i> PAN Application</a></li>
+                </ul>
+            </li>
             <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
             <li><a href="php/logout.php" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>

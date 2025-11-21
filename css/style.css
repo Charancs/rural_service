@@ -2488,3 +2488,363 @@ p {
         width: 100%;
     }
 }
+
+/* ========================================
+   SIDEBAR SUBMENU STYLES
+   ======================================== */
+.sidebar-menu .menu-section {
+    margin: 0;
+}
+
+.menu-section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(5, 150, 105, 0.05);
+    border-left: 4px solid #059669;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-section-title:hover {
+    background: rgba(5, 150, 105, 0.1);
+}
+
+.menu-section-title i {
+    color: #059669;
+    font-size: 1.1rem;
+}
+
+.submenu-arrow {
+    margin-left: auto;
+    font-size: 0.9rem !important;
+    transition: transform 0.3s ease;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    padding: 0.875rem 1.5rem 0.875rem 3rem;
+    font-size: 0.9rem;
+    border-left: 4px solid transparent;
+}
+
+.submenu a i {
+    font-size: 1rem;
+}
+
+.submenu a:hover,
+.submenu a.active {
+    background: linear-gradient(90deg, rgba(5, 150, 105, 0.15) 0%, transparent 100%);
+    border-left-color: #059669;
+}
+
+/* ========================================
+   SERVICE INFO BANNER
+   ======================================== */
+.service-info-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.service-info-banner i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 0.25rem;
+}
+
+.service-info-banner h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.service-info-banner p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ========================================
+   RESULT CONTAINERS
+   ======================================== */
+.result-container {
+    margin-top: 2rem;
+    animation: fadeInUp 0.4s ease;
+}
+
+.result-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.result-card.success {
+    border-top: 4px solid var(--success-color);
+}
+
+.result-card.error {
+    border-top: 4px solid var(--danger-color);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.05));
+}
+
+.result-card.error .result-header {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+}
+
+.result-header i {
+    font-size: 2rem;
+    color: var(--success-color);
+}
+
+.result-card.error .result-header i {
+    color: var(--danger-color);
+}
+
+.result-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+.result-body {
+    padding: 1.5rem;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-label i {
+    color: var(--primary-color);
+}
+
+.result-value {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.result-value strong {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.status-success {
+    color: var(--success-color);
+}
+
+.status-warning {
+    color: var(--warning-color);
+}
+
+.status-danger {
+    color: var(--danger-color);
+}
+
+.result-footer {
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.result-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+
+/* ========================================
+   REDIRECT INFO STYLES
+   ======================================== */
+.redirect-info {
+    margin-top: 1rem;
+}
+
+.redirect-info h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.redirect-url-box {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--border-color);
+}
+
+.redirect-url-box label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.url-display {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.url-display input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.btn-copy {
+    padding: 0.75rem 1.25rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-copy:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.action-buttons {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.info-points {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.info-points h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.info-points ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-points li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.info-points li i {
+    color: var(--success-color);
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   RECENT SECTION
+   ======================================== */
+.recent-section {
+    margin-top: 3rem;
+}
+
+.recent-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recent-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.recent-item {
+    background: white;
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.recent-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

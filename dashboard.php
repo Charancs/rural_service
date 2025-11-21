@@ -28,23 +28,49 @@ $userEmail = $_SESSION['user_email'] ?? '';
 <body>
     <nav class="navbar">
         <div class="nav-container">
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-brand">
                 <i class="fas fa-bolt"></i>
                 <h1>GSK E Services</h1>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="dashboard.php" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="profile.php"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="wallet.php"><i class="fas fa-wallet"></i> Wallet</a></li>
-                <li><a href="pan-apply.php"><i class="fas fa-id-card"></i> PAN Services</a></li>
-                <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
-                <li><a href="php/logout.php" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <div class="nav-balance">
+                <i class="fas fa-wallet"></i>
+                <span>Balance: ₹0.00</span>
+            </div>
         </div>
     </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Dashboard</h3>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.php" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="profile.php"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="wallet.php"><i class="fas fa-wallet"></i> Wallet</a></li>
+            <li class="menu-section">
+                <div class="menu-section-title" onclick="toggleSubmenu(this)">
+                    <i class="fas fa-id-card"></i> PAN Services
+                    <i class="fas fa-chevron-down submenu-arrow"></i>
+                </div>
+                <ul class="submenu" style="display: none;">
+                    <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
+                    <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
+                    <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
+                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
+                </ul>
+            </li>
+            <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
+            <li><a href="php/logout.php" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="main-container">
         <!-- Profile Summary Card -->
@@ -76,18 +102,32 @@ $userEmail = $_SESSION['user_email'] ?? '';
         </div>
 
         <div class="services-grid">
-            <div class="service-card" onclick="navigateToService('pan-apply')">
-                <div class="service-icon" style="background: var(--gradient-purple);">📝</div>
-                <h3>PAN Apply</h3>
-                <p>Apply for new PAN card online</p>
-                <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Fast approval in 7-10 days</small>
-            </div>
-
-            <div class="service-card" onclick="navigateToService('pan-verify')">
+            <div class="service-card" onclick="navigateToService('pan-verification')">
                 <div class="service-icon" style="background: var(--gradient-blue);">✅</div>
                 <h3>PAN Verification</h3>
-                <p>Verify existing PAN card details</p>
+                <p>Verify existing PAN card instantly</p>
                 <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Instant verification results</small>
+            </div>
+
+            <div class="service-card" onclick="navigateToService('pan-360')">
+                <div class="service-icon" style="background: var(--gradient-purple);">🔍</div>
+                <h3>PAN 360</h3>
+                <p>Complete PAN details with Aadhaar status</p>
+                <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Comprehensive information</small>
+            </div>
+
+            <div class="service-card" onclick="navigateToService('pan-creation')">
+                <div class="service-icon" style="background: var(--gradient-orange);">📄</div>
+                <h3>PAN Creation</h3>
+                <p>Apply for new PAN or corrections</p>
+                <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Physical & e-PAN options</small>
+            </div>
+
+            <div class="service-card" onclick="navigateToService('pan-apply')">
+                <div class="service-icon" style="background: var(--gradient-pink);">📝</div>
+                <h3>PAN Application</h3>
+                <p>Complete PAN application form</p>
+                <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Fast approval in 7-10 days</small>
             </div>
 
             <div class="service-card" onclick="navigateToService('recharge')">

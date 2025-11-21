@@ -96,6 +96,65 @@ CREATE TABLE IF NOT EXISTS user_sessions (
     INDEX idx_user (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Table for API transaction logs (PAN Services)
+CREATE TABLE IF NOT EXISTS api_transactions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    api_type VARCHAR(50) NOT NULL,
+    order_id VARCHAR(50) NOT NULL UNIQUE,
+    request_data TEXT,
+    response_data TEXT,
+    status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_order_id (order_id),
+    INDEX idx_api_type (api_type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Update pan_verifications table to include more fields for PAN API
+ALTER TABLE pan_verifications 
+ADD COLUMN IF NOT EXISTS type VARCHAR(50) AFTER name,
+ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'verified' AFTER dob,
+ADD COLUMN IF NOT EXISTS order_id VARCHAR(50) AFTER pan_number,
+ADD COLUMN IF NOT EXISTS verified_at_timestamp TIMESTAMP NULL AFTER is_valid,
+ADD INDEX IF NOT EXISTS idx_order_id (order_id);
+
+-- Table for PAN 360 records (Comprehensive PAN data)
+CREATE TABLE IF NOT EXISTS pan_360_records (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    pan_number VARCHAR(10) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    type VARCHAR(50),
+    gender VARCHAR(10),
+    date_of_birth VARCHAR(20),
+    masked_aadhaar VARCHAR(20),
+    aadhaar_linked BOOLEAN DEFAULT FALSE,
+    order_id VARCHAR(50) NOT NULL,
+    verified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_pan (pan_number),
+    INDEX idx_order_id (order_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table for PAN creation/correction requests
+CREATE TABLE IF NOT EXISTS pan_creation_requests (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    mobile_number VARCHAR(15) NOT NULL,
+    order_id VARCHAR(50) NOT NULL UNIQUE,
+    redirect_url TEXT,
+    status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    completed_at TIMESTAMP NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_order_id (order_id),
+    INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Insert test admin user (password: Admin@123)
 INSERT INTO users (first_name, last_name, email, mobile, password, state) 
 VALUES ('Admin', 'User', 'admin@gskservices.com', '9999999999', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Maharashtra')
@@ -103,3 +162,5 @@ ON DUPLICATE KEY UPDATE id=id;
 
 -- Verify tables created
 SHOW TABLES;
+
+SELECT 'All database tables created successfully! Total: 8 tables' as status;
