@@ -32,7 +32,7 @@ $userEmail = $_SESSION['user_email'] ?? '';
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-brand">
-                <i class="fas fa-building"></i>
+                <img src="public/logo.png" alt="AVK E Services Logo" style="height: 40px; width: auto; margin-right: 0.5rem;">
                 <h1>AVK E Services</h1>
             </div>
             <div class="nav-profile">

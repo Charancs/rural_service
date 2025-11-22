@@ -30,11 +30,11 @@ if (empty($password)) {
 }
 
 // Check for dummy admin credentials first
-if ($email === 'admin' && $password === 'admin123') {
+if ($email === 'admin@gmail.com' && $password === 'admin123') {
     // Create admin session
     $_SESSION['user_id'] = 999999;
     $_SESSION['user_name'] = 'Admin User';
-    $_SESSION['user_email'] = 'admin@avkeservices.com';
+    $_SESSION['user_email'] = 'admin@gmail.com';
     $_SESSION['user_mobile'] = '9999999999';
     $_SESSION['user_state'] = 'Admin';
     

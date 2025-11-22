@@ -317,7 +317,7 @@
     <div class="register-container">
         <div class="register-header">
             <div class="register-logo">
-                <i class="fas fa-building"></i>
+                <img src="public/logo.png" alt="AVK E Services Logo" style="height: 55px; width: auto;">
                 <h1>AVK E Services</h1>
             </div>
             <p>Join our digital government services platform</p>

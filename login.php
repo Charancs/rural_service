@@ -293,7 +293,7 @@
     <div class="login-container">
         <div class="login-header">
             <div class="login-logo">
-                <i class="fas fa-building"></i>
+                <img src="public/logo.png" alt="AVK E Services Logo" style="height: 55px; width: auto;">
                 <h1>AVK E Services</h1>
             </div>
             <p>Welcome back! Access your e-services dashboard</p>
