@@ -76,10 +76,28 @@
             cursor: pointer;
             padding: 0.6rem;
             z-index: 1001;
-            order: -1;
-            margin-right: 0.75rem;
             border-radius: 8px;
             transition: all 0.3s ease;
+        }
+
+        /* Mobile: Brand left, Hamburger right */
+        @media (max-width: 767px) {
+            .nav-container {
+                justify-content: space-between;
+            }
+
+            .hamburger {
+                order: 2;
+                margin-right: 0;
+            }
+
+            .nav-brand {
+                order: 1;
+            }
+
+            .landing-nav-buttons {
+                display: none;
+            }
         }
 
         .hamburger:hover {
