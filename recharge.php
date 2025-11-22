@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recharge - GSK E Services</title>
+    <title>Recharge - AVK E Services</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -26,8 +26,8 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-brand">
-                <i class="fas fa-bolt"></i>
-                <h1>GSK E Services</h1>
+                <i class="fas fa-building"></i>
+                <h1>AVK E Services</h1>
             </div>
             <div class="nav-balance">
                 <i class="fas fa-wallet"></i>
@@ -57,7 +57,6 @@ if (!isset($_SESSION['user_id'])) {
                     <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
                     <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
                     <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
-                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
                 </ul>
             </li>
             <li><a href="recharge.php" class="active"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
@@ -86,41 +85,22 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="form-group">
                         <label for="mobileNumber">Mobile Number *</label>
                         <input type="tel" id="mobileNumber" name="mobileNumber" 
-                               pattern="[0-9]{10}" 
+                               pattern="[6-9][0-9]{9}" 
                                placeholder="Enter 10 digit mobile number" 
                                maxlength="10"
                                required>
-                        <small class="form-help">Operator will be detected automatically</small>
+                        <small class="form-help">Recharge plans will be fetched automatically</small>
                     </div>
 
-                    <div class="form-group">
-                        <label for="operator">Operator</label>
-                        <select id="operator" name="operator" disabled required>
-                            <option value="">Detecting...</option>
-                        </select>
-                        <small class="form-help">Auto-detected based on mobile number</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="circle">Circle</label>
-                        <input type="text" id="circle" name="circle" readonly required>
-                        <small class="form-help">Auto-detected circle</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="amount">Recharge Amount *</label>
-                        <input type="number" id="amount" name="amount" 
-                               min="10" 
-                               placeholder="Enter amount or select from below" 
-                               required>
-                    </div>
+                    <!-- Hidden fields for operator and circle -->
+                    <input type="hidden" id="operator" name="operator">
+                    <input type="hidden" id="operatorCode" name="operatorCode">
+                    <input type="hidden" id="circle" name="circle">
+                    <input type="hidden" id="circleCode" name="circleCode">
+                    <input type="hidden" id="amount" name="amount">
 
                     <div class="quick-amounts">
-                        <button type="button" class="amount-btn" onclick="setAmount(99)">₹99</button>
-                        <button type="button" class="amount-btn" onclick="setAmount(199)">₹199</button>
-                        <button type="button" class="amount-btn" onclick="setAmount(299)">₹299</button>
-                        <button type="button" class="amount-btn" onclick="setAmount(499)">₹499</button>
-                        <button type="button" class="amount-btn" onclick="setAmount(999)">₹999</button>
+                        <!-- Plans will be loaded here automatically -->
                     </div>
                 </div>
 

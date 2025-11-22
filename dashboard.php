@@ -21,7 +21,7 @@ $userEmail = $_SESSION['user_email'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - GSK E Services</title>
+    <title>Dashboard - AVK E Services</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -32,8 +32,8 @@ $userEmail = $_SESSION['user_email'] ?? '';
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-brand">
-                <i class="fas fa-bolt"></i>
-                <h1>GSK E Services</h1>
+                <i class="fas fa-building"></i>
+                <h1>AVK E Services</h1>
             </div>
             <div class="nav-balance">
                 <i class="fas fa-wallet"></i>
@@ -63,7 +63,6 @@ $userEmail = $_SESSION['user_email'] ?? '';
                     <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
                     <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
                     <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
-                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
                 </ul>
             </li>
             <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
@@ -121,13 +120,6 @@ $userEmail = $_SESSION['user_email'] ?? '';
                 <h3>PAN Creation</h3>
                 <p>Apply for new PAN or corrections</p>
                 <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Physical & e-PAN options</small>
-            </div>
-
-            <div class="service-card" onclick="navigateToService('pan-apply')">
-                <div class="service-icon" style="background: var(--gradient-pink);">📝</div>
-                <h3>PAN Application</h3>
-                <p>Complete PAN application form</p>
-                <small style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Fast approval in 7-10 days</small>
             </div>
 
             <div class="service-card" onclick="navigateToService('recharge')">

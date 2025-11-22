@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navigate to service page
 function navigateToService(service) {
     switch(service) {
-        case 'pan-apply':
-            window.location.href = 'pan-apply.php';
-            break;
         case 'pan-verify':
             window.location.href = 'pan-verification.php';
             break;

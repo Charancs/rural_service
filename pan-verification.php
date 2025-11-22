@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAN Verification - GSK E Services</title>
+    <title>PAN Verification - AVK E Services</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -26,8 +26,8 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-brand">
-                <i class="fas fa-bolt"></i>
-                <h1>GSK E Services</h1>
+                <i class="fas fa-building"></i>
+                <h1>AVK E Services</h1>
             </div>
             <div class="nav-balance">
                 <i class="fas fa-wallet"></i>
@@ -57,7 +57,6 @@ if (!isset($_SESSION['user_id'])) {
                     <li><a href="pan-verification.php" class="active"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
                     <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
                     <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
-                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
                 </ul>
             </li>
             <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>
@@ -83,7 +82,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="form-container">
             <form id="panVerificationForm">
                 <div class="form-section">
-                    <h3>Enter PAN Details</h3>
+                    <h3>Enter PAN Number</h3>
                     
                     <div class="form-group">
                         <label for="panNumber">PAN Number *</label>
@@ -134,7 +133,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 GSK E Services - All Rights Reserved</p>
+        <p>&copy; 2025 AVK E Services and Technologies - All Rights Reserved</p>
     </footer>
 
     <script src="js/dashboard.js"></script>

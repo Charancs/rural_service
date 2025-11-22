@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - GSK E Services</title>
+    <title>Login - AVK E Services and Technologies</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,9 +11,9 @@
     <div class="auth-container">
         <div class="auth-left">
             <div class="auth-branding">
-                <i class="fas fa-bolt"></i>
-                <h1>GSK E Services</h1>
-                <p>Welcome back! We missed you</p>
+                <i class="fas fa-building"></i>
+                <h1>AVK E Services</h1>
+                <p>Welcome back! Access your e-services dashboard</p>
             </div>
             <div class="auth-features">
                 <div class="auth-feature">

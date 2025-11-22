@@ -20,7 +20,7 @@ $userState = $_SESSION['user_state'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - GSK E Services</title>
+    <title>My Profile - AVK E Services</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -28,8 +28,8 @@ $userState = $_SESSION['user_state'] ?? '';
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <i class="fas fa-bolt"></i>
-                <h1>GSK E Services</h1>
+                <i class="fas fa-building"></i>
+                <h1>AVK E Services</h1>
             </div>
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
@@ -66,7 +66,6 @@ $userState = $_SESSION['user_state'] ?? '';
                     <li><a href="pan-verification.php"><i class="fas fa-check-circle"></i> PAN Verification</a></li>
                     <li><a href="pan-360.php"><i class="fas fa-info-circle"></i> PAN 360</a></li>
                     <li><a href="pan-creation.php"><i class="fas fa-file-alt"></i> PAN Creation</a></li>
-                    <li><a href="pan-apply.php"><i class="fas fa-edit"></i> PAN Application</a></li>
                 </ul>
             </li>
             <li><a href="recharge.php"><i class="fas fa-mobile-alt"></i> Recharge</a></li>

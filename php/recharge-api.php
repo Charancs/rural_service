@@ -66,11 +66,13 @@ function handleFetchOperator() {
     ]);
     
     // Log the transaction
-    logApiTransaction($_SESSION['user_id'], 'operator_fetch', $orderId, 
-        json_encode(['mobile' => $mobile]), 
-        json_encode($response), 
-        $response['status'] ?? 'Failure'
+    $conn = getDBConnection();
+    logApiTransaction($conn, $_SESSION['user_id'], 'operator_fetch', 
+        ['mobile' => $mobile], 
+        $response, 
+        $orderId
     );
+    $conn->close();
     
     if (isset($response['status']) && $response['status'] === 'Success') {
         // Map operator name to code
@@ -124,11 +126,13 @@ function handleFetchPlans() {
     ]);
     
     // Log the transaction
-    logApiTransaction($_SESSION['user_id'], 'operator_plan_fetch', $orderId, 
-        json_encode(['mobile' => $mobile, 'opcode' => $opcode, 'circle' => $circle]), 
-        json_encode($response), 
-        $response['status'] ?? 'Failure'
+    $conn = getDBConnection();
+    logApiTransaction($conn, $_SESSION['user_id'], 'operator_plan_fetch', 
+        ['mobile' => $mobile, 'opcode' => $opcode, 'circle' => $circle], 
+        $response, 
+        $orderId
     );
+    $conn->close();
     
     if (isset($response['status']) && $response['status'] === 'Success') {
         echo json_encode([
@@ -144,15 +148,13 @@ function handleFetchPlans() {
 
 /**
  * Process recharge transaction
+ * Note: Actual recharge API not yet integrated - saving as pending
  */
 function handleProcessRecharge() {
-    global $conn;
-    
     $mobile = $_POST['mobile'] ?? '';
     $operator = $_POST['operator'] ?? '';
     $circle = $_POST['circle'] ?? '';
     $amount = $_POST['amount'] ?? 0;
-    $planType = $_POST['planType'] ?? '';
     
     // Validate inputs
     if (!isValidMobileFormat($mobile)) {
@@ -170,11 +172,13 @@ function handleProcessRecharge() {
     $transactionId = generateOrderId('RCH');
     $userId = $_SESSION['user_id'];
     
-    // Insert transaction record
+    $conn = getDBConnection();
+    
+    // Insert transaction record as pending (actual API integration pending)
     $stmt = $conn->prepare("
         INSERT INTO recharge_transactions 
         (user_id, transaction_id, type, mobile_number, operator, circle, amount, status, created_at) 
-        VALUES (?, ?, 'mobile', ?, ?, ?, ?, 'success', NOW())
+        VALUES (?, ?, 'mobile', ?, ?, ?, ?, 'pending', NOW())
     ");
     
     $stmt->bind_param('issssd', $userId, $transactionId, $mobile, $operator, $circle, $amount);
@@ -183,19 +187,23 @@ function handleProcessRecharge() {
         echo json_encode([
             'success' => true,
             'transactionId' => $transactionId,
-            'message' => 'Recharge processed successfully'
+            'message' => 'Recharge request saved. Actual recharge API integration pending.',
+            'status' => 'pending'
         ]);
     } else {
-        throw new Exception('Failed to process recharge');
+        throw new Exception('Failed to save recharge request');
     }
     
     $stmt->close();
+    $conn->close();
 }
 
 /**
- * Map operator name to code
+ * Map operator name to code based on API requirements
+ * Airtel: A, Vodafone: V, Jio: J, BSNL TOPUP: BT, BSNL Special: BS
  */
 function getOperatorCode($operatorName) {
+    $operatorName = strtoupper(trim($operatorName));
     $operatorMap = [
         'AIRTEL' => 'A',
         'VODAFONE' => 'V',
@@ -207,10 +215,8 @@ function getOperatorCode($operatorName) {
         'IDEA' => 'V'
     ];
     
-    $operatorUpper = strtoupper($operatorName);
-    
     foreach ($operatorMap as $key => $code) {
-        if (strpos($operatorUpper, $key) !== false) {
+        if (strpos($operatorName, $key) !== false) {
             return $code;
         }
     }
