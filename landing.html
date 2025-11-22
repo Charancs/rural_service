@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AVK E Services and Technologies - Your trusted partner for government e-services">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>AVK E Services and Technologies - Digital Government Services Platform</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Updated: 2025-11-22 - New Button Design */
         * {
             margin: 0;
             padding: 0;
@@ -135,8 +139,8 @@
         }
 
         .btn-nav-login, .btn-nav-register {
-            padding: 0.65rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.7rem 1.75rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -146,33 +150,32 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            border: 2px solid transparent;
+            border: none;
         }
 
         .btn-nav-login {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+            background: rgba(255, 255, 255, 0.95);
+            color: #0f766e;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-nav-login:hover {
-            background: white;
+            background: #ffffff;
             color: #0d9488;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
         }
 
         .btn-nav-register {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: #f59e0b;
             color: white;
-            border: 2px solid transparent;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
         }
 
         .btn-nav-register:hover {
-            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            background: #d97706;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5);
         }
 
         /* Desktop Navigation */
@@ -198,14 +201,14 @@
                 padding: 0;
                 gap: 2rem;
                 flex: 1;
-                justify-content: center;
                 align-items: center;
             }
 
             .nav-links {
                 flex-direction: row;
                 gap: 3rem;
-                margin-right: auto;
+                flex: 1;
+                justify-content: center;
             }
 
             .nav-links a {
@@ -216,11 +219,10 @@
             .landing-nav-buttons {
                 flex-direction: row;
                 gap: 1rem;
-                margin-left: auto;
             }
 
             .btn-nav-login, .btn-nav-register {
-                padding: 0.75rem 2rem;
+                padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
         }

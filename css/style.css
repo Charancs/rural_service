@@ -934,43 +934,48 @@ p {
 }
 
 .btn-nav-login {
-    background: transparent !important;
-    border: 2px solid var(--primary-color) !important;
-    color: var(--primary-color) !important;
-    padding: 0.6rem 1.25rem !important;
-    border-radius: 50px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: none !important;
+    color: #0f766e !important;
+    padding: 0.7rem 1.75rem !important;
+    border-radius: 8px !important;
     text-decoration: none !important;
     font-weight: 600 !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.4rem !important;
-    transition: var(--transition) !important;
+    gap: 0.5rem !important;
+    transition: all 0.3s ease !important;
     font-size: 0.95rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .btn-nav-login:hover {
-    background: var(--primary-color) !important;
-    color: white !important;
+    background: #ffffff !important;
+    color: #0d9488 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
 .btn-nav-register {
-    background: var(--gradient-primary) !important;
+    background: #f59e0b !important;
     color: white !important;
-    padding: 0.6rem 1.25rem !important;
-    border-radius: 50px !important;
+    padding: 0.7rem 1.75rem !important;
+    border-radius: 8px !important;
     text-decoration: none !important;
     font-weight: 600 !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.4rem !important;
-    transition: var(--transition) !important;
-    border: 2px solid transparent !important;
+    gap: 0.5rem !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
     font-size: 0.95rem !important;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3) !important;
 }
 
 .btn-nav-register:hover {
+    background: #d97706 !important;
     transform: translateY(-2px) !important;
-    box-shadow: var(--shadow-md) !important;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5) !important;
 }
 
 /* Hero Section */
