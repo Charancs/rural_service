@@ -35,9 +35,14 @@ $userEmail = $_SESSION['user_email'] ?? '';
                 <i class="fas fa-building"></i>
                 <h1>AVK E Services</h1>
             </div>
-            <div class="nav-balance">
-                <i class="fas fa-wallet"></i>
-                <span>Balance: ₹0.00</span>
+            <div class="nav-profile">
+                <div class="nav-profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="nav-profile-info">
+                    <div class="nav-profile-name"><?php echo htmlspecialchars($userName); ?></div>
+                    <div class="nav-profile-email"><?php echo htmlspecialchars($userEmail); ?></div>
+                </div>
             </div>
         </div>
     </nav>
@@ -72,24 +77,15 @@ $userEmail = $_SESSION['user_email'] ?? '';
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="main-container">
-        <!-- Profile Summary Card -->
-        <div class="profile-summary-card">
-            <div class="profile-header">
-                <div class="profile-avatar">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="profile-info">
-                    <h3><?php echo htmlspecialchars($userName); ?></h3>
-                    <p><i class="fas fa-envelope"></i> <?php echo htmlspecialchars($userEmail); ?></p>
-                </div>
+        <!-- Compact Wallet Card -->
+        <div class="compact-wallet-card">
+            <div class="wallet-info">
+                <div class="wallet-label">Wallet Balance</div>
+                <div class="wallet-amount">₹0.00</div>
             </div>
-            <div class="wallet-balance">
-                <div class="balance-label">Wallet Balance</div>
-                <div class="balance-amount">₹0.00</div>
-                <a href="wallet.php" class="btn-add-money">
-                    <i class="fas fa-plus-circle"></i> Add Money
-                </a>
-            </div>
+            <a href="wallet.php" class="btn-add-money-compact">
+                <i class="fas fa-plus"></i> Add Money
+            </a>
         </div>
 
         <div class="welcome-section">
@@ -131,24 +127,24 @@ $userEmail = $_SESSION['user_email'] ?? '';
         </div>
 
         <div class="dashboard-info">
-            <div class="info-card" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1)); border-left: 4px solid var(--purple);">
-                <i class="fas fa-shield-alt" style="color: var(--purple);"></i>
+            <div class="info-card">
+                <i class="fas fa-shield-alt" style="color: #0d9488;"></i>
                 <div>
                     <h4>100% Secure Transactions</h4>
                     <p>All your transactions are encrypted and protected with bank-level security protocols.</p>
                 </div>
             </div>
             
-            <div class="info-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-left: 4px solid var(--blue);">
-                <i class="fas fa-headset" style="color: var(--blue);"></i>
+            <div class="info-card">
+                <i class="fas fa-headset" style="color: #3b82f6;"></i>
                 <div>
                     <h4>24/7 Customer Support</h4>
                     <p>Need help? Our support team is available round the clock to assist you with any queries.</p>
                 </div>
             </div>
             
-            <div class="info-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.1)); border-left: 4px solid var(--green);">
-                <i class="fas fa-bolt" style="color: var(--green);"></i>
+            <div class="info-card">
+                <i class="fas fa-bolt" style="color: #f59e0b;"></i>
                 <div>
                     <h4>Lightning Fast Service</h4>
                     <p>Experience instant service delivery with our optimized processing system.</p>
@@ -164,86 +160,117 @@ $userEmail = $_SESSION['user_email'] ?? '';
     <script src="js/dashboard.js"></script>
     
     <style>
-        .profile-summary-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .profile-header {
+        /* Navbar Profile Styles */
+        .nav-profile {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .profile-avatar {
-            font-size: 4rem;
-            opacity: 0.9;
-        }
-        
-        .profile-info h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.5rem;
-        }
-        
-        .profile-info p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-        
-        .wallet-balance {
-            text-align: center;
-        }
-        
-        .balance-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-        
-        .balance-amount {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-add-money {
-            display: inline-block;
-            background: white;
-            color: var(--primary-color);
-            padding: 0.75rem 2rem;
+            gap: 0.75rem;
+            background: rgba(13, 148, 136, 0.1);
+            padding: 0.5rem 1rem;
             border-radius: 50px;
+            margin-left: auto;
+        }
+        
+        .nav-profile-avatar {
+            font-size: 2rem;
+            color: #0d9488;
+        }
+        
+        .nav-profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+        
+        .nav-profile-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0f766e;
+            line-height: 1.2;
+        }
+        
+        .nav-profile-email {
+            font-size: 0.75rem;
+            color: #475569;
+            line-height: 1.2;
+        }
+        
+        /* Compact Wallet Card */
+        .compact-wallet-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 450px;
+        }
+        
+        .wallet-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .wallet-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .wallet-amount {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #0d9488;
+        }
+        
+        .btn-add-money-compact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #0d9488;
+            color: white;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+            white-space: nowrap;
         }
         
-        .btn-add-money:hover {
+        .btn-add-money-compact:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+            background: #0f766e;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
         }
         
         .dashboard-info {
             margin-top: 3rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .info-card {
+            background: white;
+            border: 1px solid #e5e7eb;
             padding: 2rem;
-            border-radius: var(--border-radius);
+            border-radius: 16px;
             display: flex;
             gap: 1.5rem;
             align-items: flex-start;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
         
         .info-card i {
@@ -252,28 +279,35 @@ $userEmail = $_SESSION['user_email'] ?? '';
         
         .info-card h4 {
             margin-bottom: 0.5rem;
-            color: var(--text-primary);
+            color: #0f766e;
+            font-weight: 700;
         }
         
         .info-card p {
-            color: var(--text-secondary);
+            color: #475569;
             margin: 0;
             line-height: 1.6;
         }
         
         /* Mobile responsive */
         @media (max-width: 768px) {
-            .profile-header {
+            .nav-profile-info {
+                display: none;
+            }
+            
+            .nav-profile {
+                padding: 0.5rem;
+            }
+            
+            .compact-wallet-card {
                 flex-direction: column;
+                gap: 1rem;
                 text-align: center;
+                max-width: 100%;
             }
             
-            .profile-avatar {
-                font-size: 3rem;
-            }
-            
-            .balance-amount {
-                font-size: 2rem;
+            .wallet-amount {
+                font-size: 1.5rem;
             }
         }
     </style>

@@ -29,6 +29,27 @@ if (empty($password)) {
     exit;
 }
 
+// Check for dummy admin credentials first
+if ($email === 'admin' && $password === 'admin123') {
+    // Create admin session
+    $_SESSION['user_id'] = 999999;
+    $_SESSION['user_name'] = 'Admin User';
+    $_SESSION['user_email'] = 'admin@avkeservices.com';
+    $_SESSION['user_mobile'] = '9999999999';
+    $_SESSION['user_state'] = 'Admin';
+    
+    // Force session save
+    session_write_close();
+    session_start();
+    
+    echo json_encode([
+        'success' => true, 
+        'message' => 'Login successful! Redirecting to dashboard...',
+        'redirect' => 'dashboard.php'
+    ]);
+    exit;
+}
+
 try {
     $conn = getDBConnection();
     
